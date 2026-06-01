@@ -6,8 +6,8 @@ TB-CXR and external evaluation on TBX11K (China) and the NIAID TB Portals
 LMIC cohort.
 
 This repository accompanies the manuscript *"Calibrated Lightweight Chest
-X-ray Triage for Tuberculosis in Resource-Constrained Settings"* (MIRASOL @
-MICCAI 2026 submission). The model itself is a small ResNet-18 fine-tuned
+X-ray Triage for Tuberculosis in Resource-Constrained Settings"*. The
+model itself is a small ResNet-18 fine-tuned
 with focal loss and post-hoc temperature scaling; the contribution of the
 work is not a new architecture but the integration of (i) operating-point
 reporting, (ii) calibration, (iii) external evaluation on twelve LMIC
@@ -193,30 +193,6 @@ lower sensitivity than the others. The model card committed to the
 release alongside the checkpoint lists the populations, devices, and use
 cases under which the system has *not* been validated; please read it
 before clinical use.
-
----
-
-## Citing
-
-If you find this repository useful, please cite the manuscript:
-
-```
-@inproceedings{ismaila2026tbtriage,
-  title     = {Calibrated Lightweight Chest X-ray Triage for Tuberculosis
-               in Resource-Constrained Settings},
-  author    = {Ismaila, Lukman E. and collaborators},
-  booktitle = {MIRASOL Workshop @ MICCAI},
-  year      = {2026}
-}
-```
-
-(Replace with the final citation once accepted.)
-
-Independently, please cite the dataset providers:
-
-* Rahman et al., *IEEE Access* 8 (2020) — Qatar/Dhaka TB-CXR.
-* Liu et al., CVPR 2020 — TBX11K.
-* Rosenthal et al., *J. Clin. Microbiol.* 55(11) (2017) — NIAID TB Portals.
 
 ---
 
