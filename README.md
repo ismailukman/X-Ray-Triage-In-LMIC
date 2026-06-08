@@ -49,7 +49,6 @@ and the orange/red is the out-of-distribution generalisation story.*
 ```
 .
 ├── _common.py                # shared helpers (datasets, backbones, focal loss, metrics)
-├── 01_download_data.py       # Kaggle data downloader (Qatar + TBX11K)
 ├── 02_train.py               # train ResNet-18 with focal loss
 ├── 03_calibrate.py           # fit a single scalar T on the validation split
 ├── 04_evaluate.py            # internal test: Acc, AUROC, Sens@90, ECE, reliability
@@ -102,26 +101,11 @@ runs comfortably on CPU.
 
 ### 2. Data
 
-Two of the three datasets are downloadable from Kaggle and one requires
-a free Data Use Agreement.
+Download the datasets manually:
 
-**Qatar TB-CXR v1** (training) and **TBX11K** (external) are pulled by:
-
-```bash
-python 01_download_data.py
-```
-
-The script expects `~/.kaggle/kaggle.json` to be present (see
-<https://www.kaggle.com/docs/api>). Both datasets land under `data/`.
-
-**NIAID TB Portals** (external, LMIC, used for `12_tbportals_eval.py`)
-requires a click-through DUA at
-<https://tbportals.niaid.nih.gov/download-data>. The DUA is free but the
-data may not be redistributed; this repository does not contain any TB
-Portals image. Once approved, place the extracted DICOM files under
-`data/tbportals/` and the manifest + metadata CSV at
-`data/tbportals/manifest.csv` and `data/tbportals/metadata.csv` (or pass
-their paths with `--manifest_csv` / `--meta_csv`).
+- **Qatar TB-CXR v1** (training, Kaggle): <https://www.kaggle.com/datasets/tawsifurrahman/tuberculosis-tb-chest-xray-dataset>. Unpack into `data/qatar_tb_cxr/` so that `Normal/` and `Tuberculosis/` subfolders appear there.
+- **TBX11K** (external, Kaggle): <https://www.kaggle.com/datasets/usmanshams/tbx-11>. Unpack into `data/tbx11k/`.
+- **NIAID TB Portals** (external, LMIC): apply for the free click-through DUA at <https://tbportals.niaid.nih.gov/download-data>. The data may not be redistributed; this repository contains no TB Portals image. Once approved, place the extracted DICOM files under `data/tbportals/` and the manifest and metadata CSVs at `data/tbportals/manifest.csv` and `data/tbportals/metadata.csv` (or pass their paths via `--manifest_csv` / `--meta_csv`).
 
 ### 3. Train, calibrate, evaluate
 

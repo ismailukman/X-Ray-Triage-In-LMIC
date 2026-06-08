@@ -52,7 +52,10 @@ def build_index(qatar_root: Path) -> pd.DataFrame:
     df = pd.DataFrame(rows)
     if len(df) == 0:
         raise RuntimeError(f"No images found under {qatar_root}. "
-                           "Check 01_download_data.py ran successfully.")
+                           "Download the Qatar TB-CXR v1 corpus from "
+                           "https://www.kaggle.com/datasets/tawsifurrahman/"
+                           "tuberculosis-tb-chest-xray-dataset and unpack "
+                           "into this folder.")
     return df
 
 
